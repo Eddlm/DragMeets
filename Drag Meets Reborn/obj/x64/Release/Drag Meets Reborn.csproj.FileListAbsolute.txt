@@ -1,0 +1,6 @@
+D:\Mis Archivos\Proyectos\Mods\GTAVScripting\Drag Meets Reborn\Drag Meets Reborn\bin\x64\Release\DragMeets.dll
+D:\Mis Archivos\Proyectos\Mods\GTAVScripting\Drag Meets Reborn\Drag Meets Reborn\bin\x64\Release\DragMeets.pdb
+D:\Mis Archivos\Proyectos\Mods\GTAVScripting\Drag Meets Reborn\Drag Meets Reborn\bin\x64\Release\ScriptHookVDotNet.dll
+D:\Mis Archivos\Proyectos\Mods\GTAVScripting\Drag Meets Reborn\Drag Meets Reborn\obj\x64\Release\DragMeets.dll
+D:\Mis Archivos\Proyectos\Mods\GTAVScripting\Drag Meets Reborn\Drag Meets Reborn\obj\x64\Release\DragMeets.pdb
+D:\Mis Archivos\Proyectos\Mods\GTAVScripting\Drag Meets Reborn\Drag Meets Reborn\obj\x64\Release\Drag Meets Reborn.csprojResolveAssemblyReference.cache
