@@ -297,12 +297,6 @@ public class DragMeets : Script
 		{
 			XmlDocument xmlDocument = new XmlDocument();
 			xmlDocument.Load(PlayerFile);
-			int num = 0;
-			while (xmlDocument == null && num < 500)
-			{
-				xmlDocument.Load(PlayerFile);
-				Script.Wait(0);
-			}
 			XmlElement documentElement = xmlDocument.DocumentElement;
 			XmlNode xmlNode = documentElement.SelectSingleNode("//Wins");
 			if (xmlNode == null)
@@ -332,17 +326,6 @@ public class DragMeets : Script
 		}
 		XmlDocument xmlDocument = new XmlDocument();
 		xmlDocument.Load(RacersFile);
-		int num = 0;
-		while (xmlDocument == null && num < 500)
-		{
-			xmlDocument.Load(RacersFile);
-			Script.Wait(0);
-		}
-		if (num >= 500)
-		{
-			WarnPlayer(ScriptName + " " + ScriptVer, "Racers.xml LOAD ERROR", "~r~Couldn't load the file.");
-			return;
-		}
 		XmlElement documentElement = xmlDocument.DocumentElement;
 		XmlNodeList xmlNodeList = documentElement.SelectNodes("//Racers/*");
 		if (xmlNodeList.Count == 0)
@@ -403,12 +386,6 @@ public class DragMeets : Script
 	{
 		XmlDocument xmlDocument = new XmlDocument();
 		xmlDocument.Load(PlayerFile);
-		int num = 0;
-		while (xmlDocument == null && num < 500)
-		{
-			xmlDocument.Load(PlayerFile);
-			Script.Wait(0);
-		}
 		XmlElement documentElement = xmlDocument.DocumentElement;
 		XmlNode xmlNode = documentElement.SelectSingleNode("//Wins");
 		if (xmlNode != null)
@@ -443,16 +420,6 @@ public class DragMeets : Script
 		//IL_0072: Unknown result type (might be due to invalid IL or missing references)
 		XmlDocument xmlDocument = new XmlDocument();
 		xmlDocument.Load(RacersFile);
-		int num = 0;
-		while (xmlDocument == null && num < 500)
-		{
-			xmlDocument.Load(RacersFile);
-			Script.Wait(0);
-		}
-		if (num >= 500)
-		{
-			return true;
-		}
 		XmlElement documentElement = xmlDocument.DocumentElement;
 		int num2 = 0;
 		foreach (XmlElement item in documentElement.SelectNodes("//Vehicle/*"))
@@ -3076,17 +3043,6 @@ public class DragMeets : Script
 		XmlDocument xmlDocument = new XmlDocument();
 		xmlDocument.Load(RacersFile);
 		int num = 0;
-		while (xmlDocument == null && num < 500)
-		{
-			xmlDocument.Load(RacersFile);
-			Script.Wait(0);
-		}
-		if (num >= 500)
-		{
-			WarnPlayer(ScriptName + " " + ScriptVer, "Racers.xml LOAD ERROR", "~r~Couldn't load the file.");
-			ClearMeet(DeleteEverything: true);
-			return;
-		}
 		XmlElement documentElement = xmlDocument.DocumentElement;
 		XmlNodeList xmlNodeList = documentElement.SelectNodes("//Racers/*");
 		if (xmlNodeList.Count == 0)
