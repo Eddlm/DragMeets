@@ -107,8 +107,8 @@ Five different mechanisms carry the 149 player-facing messages, and they are not
 | `Util.AddNotification` | rich notification with avatar and author | queued, four parallel lists |
 
 Every message is a raw string with `~colour~` codes inline; there is no token table and no message
-resource. Debug chatter is wrapped in `if (DebugNotifications)` (30 blocks) and guidance in
-`if (Guides)` (8 blocks).
+resource. Debug chatter is wrapped in `if (DebugNotifications)` — 21 blocks, plus nine field-missing
+messages whose gate lives inside `ReportMissingField` instead — and guidance in `if (Guides)` (8 blocks).
 
 Two consequences worth knowing before editing any of it:
 
@@ -118,6 +118,9 @@ Two consequences worth knowing before editing any of it:
   means it only exists when the gate passes; moving the gate into a helper evaluates the argument on
   every call. Any message built from live entity state can then throw in sessions where the feature is
   switched off — so those stay as guards.
+- **If this shape is ever back-ported to the 1.9.x sources, watch for the tenth site.** Those trees carry
+  `else UI.Notify("~r~PathToWaitingArea not found")` **ungated**, and 2.2 does not have it at all. Routing
+  it through the helper would silently start suppressing a message that has always been shown.
 
 ## Hidden couplings
 
