@@ -190,6 +190,9 @@ public class DragMeets : Script
 
 	public static List<Blip> MeetBlips = new List<Blip>();
 
+	private static int _tickCount;
+	private static DragRaceState _lastLoggedState = DragRaceState.NotStarted;
+
 	public static DragRaceState MeetState = DragRaceState.NotStarted;
 
 	public static int PickingGameRef = 0;
@@ -285,6 +288,14 @@ public class DragMeets : Script
 			"DIRT_RACES_SOUNDSET"
 		});
 		File.WriteAllText(Paths.DebugLog, string.Concat("Script started -", DateTime.Now, "-GameVer ", ((object)Game.Version/*cast due to constrained. prefix*/).ToString()));
+		try
+		{
+			Log.I(string.Concat("settings in effect (", configpath, "):\n", File.ReadAllText(configpath)));
+		}
+		catch (Exception ex)
+		{
+			Log.I(string.Concat("settings unreadable: ", ex.Message));
+		}
 		LamarNotificationTime = Game.GameTime + Util.RandomInt(1, 5) * 1000 * 60;
 	}
 
@@ -438,6 +449,46 @@ public class DragMeets : Script
 	}
 
 	private void OnTick(object sender, EventArgs e)
+	{
+		try
+		{
+			Heartbeat();
+		}
+		catch (Exception ex)
+		{
+			Log.Exception(ex);
+		}
+		try
+		{
+			OnTickBody(sender, e);
+		}
+		catch (Exception ex)
+		{
+			Log.Exception(ex);
+			throw;
+		}
+	}
+
+	/// <summary>
+	/// Observation only: a state transition and a periodic position stamp, so a session can be
+	/// read as a timeline. Never touches game state.
+	/// </summary>
+	private void Heartbeat()
+	{
+		_tickCount++;
+		if (MeetState != _lastLoggedState)
+		{
+			Log.I(string.Concat("STATE ", _lastLoggedState, " -> ", MeetState));
+			_lastLoggedState = MeetState;
+		}
+		if (_tickCount % 300 != 0)
+		{
+			return;
+		}
+		Log.I(string.Concat("tick=", _tickCount, " state=", MeetState, " loaded=", IsAnyMeetLoaded(), " player=", Game.Player.Character.Position.ToString()));
+	}
+
+	private void OnTickBody(object sender, EventArgs e)
 	{
 		//IL_06cf: Invalid comparison between Unknown and I4
 		if (LamarComments.Count > 0 && LamarNotificationTime < Game.GameTime)
