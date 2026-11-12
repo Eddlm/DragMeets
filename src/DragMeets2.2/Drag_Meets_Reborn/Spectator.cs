@@ -20,11 +20,6 @@ public class Spectator
 
 	public Spectator(Ped ped, Vehicle veh)
 	{
-		//IL_0008: Unknown result type (might be due to invalid IL or missing references)
-		//IL_000d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00c2: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00d3: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00d8: Unknown result type (might be due to invalid IL or missing references)
 		SpectatorPed = ped;
 		if (Util.CanWeUse((Entity)(object)veh))
 		{
@@ -58,22 +53,8 @@ public class Spectator
 
 	public void HandleAI()
 	{
-		//IL_0027: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0265: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0279: Unknown result type (might be due to invalid IL or missing references)
 		//IL_027f: Expected Obj, but got Unknown
-		//IL_028a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_028f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_02dd: Unknown result type (might be due to invalid IL or missing references)
-		//IL_02eb: Unknown result type (might be due to invalid IL or missing references)
-		//IL_02f9: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0079: Unknown result type (might be due to invalid IL or missing references)
 		//IL_007f: Expected Obj, but got Unknown
-		//IL_008a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_008f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00dd: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00eb: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00f9: Unknown result type (might be due to invalid IL or missing references)
 		if (State == Spectatus.RidingCar && Util.CanWeUse((Entity)(object)SpectatorPed.CurrentVehicle) && ((Entity)SpectatorPed).IsInRangeOf(DragMeets.WaitingArea, DragMeets.WaitingAreRange * 3f) && SpectatorPed.TaskSequenceProgress == -1 && !Function.Call<bool>((Hash)6317224474499895619L, new InputArgument[1] { SpectatorPed }))
 		{
 			TaskSequence val = new TaskSequence();
@@ -206,18 +187,7 @@ public class Spectator
 
 	public void TaskCheckCarOut(Vehicle veh)
 	{
-		//IL_0007: Unknown result type (might be due to invalid IL or missing references)
 		//IL_000d: Expected Obj, but got Unknown
-		//IL_000e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0013: Unknown result type (might be due to invalid IL or missing references)
-		//IL_001b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0020: Unknown result type (might be due to invalid IL or missing references)
-		//IL_006e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_007c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_008a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00f3: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0106: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0119: Unknown result type (might be due to invalid IL or missing references)
 		State = Spectatus.CheckingCarOut;
 		TaskSequence val = new TaskSequence();
 		Vector3 position = ((Entity)veh).Position;

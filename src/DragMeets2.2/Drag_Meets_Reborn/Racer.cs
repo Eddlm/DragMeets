@@ -109,28 +109,10 @@ public class Racer
 
 	public Racer(string name, Ped ped, Vehicle veh, int customTurbo, int reaction, int shifting, bool notify, int won, int lost, int money, bool parachute, bool persistent)
 	{
-		//IL_002a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_002f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0061: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0066: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0096: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00a0: Expected Obj, but got Unknown
-		//IL_0144: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0149: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0297: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01a4: Unknown result type (might be due to invalid IL or missing references)
 		//IL_01aa: Invalid comparison between Unknown and I4
-		//IL_01d6: Unknown result type (might be due to invalid IL or missing references)
 		//IL_01dc: Invalid comparison between Unknown and I4
-		//IL_01e4: Unknown result type (might be due to invalid IL or missing references)
 		//IL_01ea: Invalid comparison between Unknown and I4
-		//IL_0440: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0445: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0448: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0458: Unknown result type (might be due to invalid IL or missing references)
-		//IL_045d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0460: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0216: Unknown result type (might be due to invalid IL or missing references)
 		//IL_021c: Invalid comparison between Unknown and I4
 		Driver = ped;
 		Car = veh;
@@ -295,8 +277,6 @@ public class Racer
 
 	public bool InPosition()
 	{
-		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0022: Unknown result type (might be due to invalid IL or missing references)
 		if (((Entity)Car).IsInRangeOf(Util.ToGround(Util.GetEntityOffset((Entity)(object)DragMeets.FlarePed, DragMeets.ForwardOffset, Offset), 5f), 4f))
 		{
 			return (double)Car.Speed < 0.300000011920929;
@@ -306,10 +286,6 @@ public class Racer
 
 	public void HandlePlayerBet()
 	{
-		//IL_002e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00bf: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0094: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00f2: Unknown result type (might be due to invalid IL or missing references)
 		if (!Game.Player.Character.IsOnFoot || Driver.IsPlayer || !((Entity)Game.Player.Character).IsInRangeOf(((Entity)Driver).Position, 4f))
 		{
 			return;
@@ -379,51 +355,8 @@ public class Racer
 
 	public void OnTick()
 	{
-		//IL_0066: Unknown result type (might be due to invalid IL or missing references)
-		//IL_007c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0096: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0039: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0380: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0444: Unknown result type (might be due to invalid IL or missing references)
 		//IL_044e: Expected Obj, but got Unknown
-		//IL_03a4: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03b8: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03bd: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03d1: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03e5: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03f9: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0118: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0147: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0490: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0495: Unknown result type (might be due to invalid IL or missing references)
-		//IL_04fd: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0683: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0698: Unknown result type (might be due to invalid IL or missing references)
-		//IL_069d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_06a1: Unknown result type (might be due to invalid IL or missing references)
-		//IL_06b1: Unknown result type (might be due to invalid IL or missing references)
-		//IL_06b6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_06bb: Unknown result type (might be due to invalid IL or missing references)
-		//IL_06cf: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0a3d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0ab1: Unknown result type (might be due to invalid IL or missing references)
-		//IL_07fe: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0813: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0818: Unknown result type (might be due to invalid IL or missing references)
-		//IL_081c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_082c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0831: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0836: Unknown result type (might be due to invalid IL or missing references)
-		//IL_084a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0d20: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0b30: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0b36: Invalid comparison between Unknown and I4
-		//IL_13c8: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0ed6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0e4a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0fff: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0e43: Unknown result type (might be due to invalid IL or missing references)
-		//IL_14a7: Unknown result type (might be due to invalid IL or missing references)
 		if (Util.CanWeUse((Entity)(object)Parachute))
 		{
 			if ((double)Util.ForwardSpeed(Car) > 4.0)
@@ -896,46 +829,6 @@ public class Racer
 
 	public void GetToStartingPos(bool doburnouts)
 	{
-		//IL_0091: Unknown result type (might be due to invalid IL or missing references)
-		//IL_009b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00a0: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00bc: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00c1: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00f0: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00fa: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00ff: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0112: Unknown result type (might be due to invalid IL or missing references)
-		//IL_011c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0121: Unknown result type (might be due to invalid IL or missing references)
-		//IL_012c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_05e1: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01f5: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01ff: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0204: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0210: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0611: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0160: Unknown result type (might be due to invalid IL or missing references)
-		//IL_063d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0189: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01cb: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0255: Unknown result type (might be due to invalid IL or missing references)
-		//IL_031c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0321: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0329: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0340: Unknown result type (might be due to invalid IL or missing references)
-		//IL_034a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03e3: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03e8: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03ec: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0405: Unknown result type (might be due to invalid IL or missing references)
-		//IL_040a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_040e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0428: Unknown result type (might be due to invalid IL or missing references)
-		//IL_042d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0431: Unknown result type (might be due to invalid IL or missing references)
-		//IL_044a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_044f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0453: Unknown result type (might be due to invalid IL or missing references)
 		if ((double)Car.BodyHealth < 600.0)
 		{
 			Car.Repair();
@@ -1110,35 +1003,7 @@ public class Racer
 
 	private void HandleWaitingAreaBehavior()
 	{
-		//IL_0275: Unknown result type (might be due to invalid IL or missing references)
-		//IL_005d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_02bb: Unknown result type (might be due to invalid IL or missing references)
-		//IL_02ff: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0340: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00c0: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00c6: Expected Obj, but got Unknown
-		//IL_00cc: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00d1: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00d9: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00de: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00fa: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0108: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0116: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0184: Unknown result type (might be due to invalid IL or missing references)
-		//IL_019c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01b4: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0492: Unknown result type (might be due to invalid IL or missing references)
-		//IL_050e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_04b7: Unknown result type (might be due to invalid IL or missing references)
-		//IL_04bc: Unknown result type (might be due to invalid IL or missing references)
-		//IL_04c8: Unknown result type (might be due to invalid IL or missing references)
-		//IL_052e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_04e9: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0382: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03be: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03c3: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03da: Unknown result type (might be due to invalid IL or missing references)
-		//IL_046c: Unknown result type (might be due to invalid IL or missing references)
 		if (Driver.IsPlayer)
 		{
 			return;
@@ -1261,32 +1126,10 @@ public class Racer
 
 	public void HandleAI()
 	{
-		//IL_00fa: Unknown result type (might be due to invalid IL or missing references)
-		//IL_019b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_01a1: Invalid comparison between Unknown and I4
-		//IL_038c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03c3: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01c8: Unknown result type (might be due to invalid IL or missing references)
 		//IL_01ce: Invalid comparison between Unknown and I4
-		//IL_01f5: Unknown result type (might be due to invalid IL or missing references)
 		//IL_01fc: Invalid comparison between Unknown and I4
-		//IL_04c5: Unknown result type (might be due to invalid IL or missing references)
-		//IL_044e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_040c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0411: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0223: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0229: Invalid comparison between Unknown and I4
-		//IL_0476: Unknown result type (might be due to invalid IL or missing references)
-		//IL_042d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0326: Unknown result type (might be due to invalid IL or missing references)
-		//IL_032b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_02f1: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0729: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0734: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0761: Unknown result type (might be due to invalid IL or missing references)
-		//IL_076c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0789: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0799: Unknown result type (might be due to invalid IL or missing references)
 		if (Driver.IsInVehicle(Car) && (double)Car.Speed > 1.0)
 		{
 			if (Car.IsDoorOpen((VehicleDoor)5))
@@ -1526,8 +1369,6 @@ public class Racer
 
 	public void TaskFinish()
 	{
-		//IL_0072: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0077: Unknown result type (might be due to invalid IL or missing references)
 		PerformancePoints = Util.CalculatePerformancePoints(Car);
 		ParachuteWasted = false;
 		RacesDone++;
@@ -1568,14 +1409,7 @@ public class Racer
 
 	public void TaskToWaitingArea()
 	{
-		//IL_001b: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0021: Expected Obj, but got Unknown
-		//IL_0033: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0038: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0045: Unknown result type (might be due to invalid IL or missing references)
-		//IL_007d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_008b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0099: Unknown result type (might be due to invalid IL or missing references)
 		if (DragMeets.ToWaitingArea.Count <= 0 || Driver.IsPlayer)
 		{
 			return;
@@ -1607,39 +1441,14 @@ public class Racer
 
 	public void TaskRace()
 	{
-		//IL_0035: Unknown result type (might be due to invalid IL or missing references)
-		//IL_003a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00b2: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00c0: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00ce: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0293: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0299: Invalid comparison between Unknown and I4
-		//IL_040f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0384: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0482: Unknown result type (might be due to invalid IL or missing references)
-		//IL_048c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0491: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0497: Unknown result type (might be due to invalid IL or missing references)
-		//IL_049c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_04bb: Unknown result type (might be due to invalid IL or missing references)
-		//IL_04c0: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0181: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0187: Invalid comparison between Unknown and I4
-		//IL_019d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_018f: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0195: Invalid comparison between Unknown and I4
-		//IL_01cf: Unknown result type (might be due to invalid IL or missing references)
 		//IL_01d5: Invalid comparison between Unknown and I4
-		//IL_0540: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0547: Expected Obj, but got Unknown
-		//IL_020f: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0215: Invalid comparison between Unknown and I4
-		//IL_01dd: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0250: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0256: Invalid comparison between Unknown and I4
-		//IL_021d: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0223: Invalid comparison between Unknown and I4
-		//IL_025e: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0264: Invalid comparison between Unknown and I4
 		StartTime = Game.GameTime;
 		StuckScore = 0;

@@ -262,10 +262,7 @@ public class DragMeets : Script
 
 	public DragMeets()
 	{
-		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0022: Expected Obj, but got Unknown
-		//IL_0251: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0256: Unknown result type (might be due to invalid IL or missing references)
 		((Script)this).Tick += OnTick;
 		((Script)this).KeyDown += OnKeyDown;
 		((Script)this).KeyUp += OnKeyUp;
@@ -401,12 +398,6 @@ public class DragMeets : Script
 
 	public bool IsAnyMeetLoaded()
 	{
-		//IL_0000: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0005: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0011: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0016: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0022: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0027: Unknown result type (might be due to invalid IL or missing references)
 		if (StartingLine != Vector3.Zero && Finishline != Vector3.Zero && WaitingArea != Vector3.Zero)
 		{
 			return WaitingAreRange != 0f;
@@ -416,8 +407,6 @@ public class DragMeets : Script
 
 	public bool IsInRacerList(Vehicle veh, bool checkHash, bool checkName, int maxItems)
 	{
-		//IL_006d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0072: Unknown result type (might be due to invalid IL or missing references)
 		XmlDocument xmlDocument = new XmlDocument();
 		xmlDocument.Load(RacersFile);
 		XmlElement documentElement = xmlDocument.DocumentElement;
@@ -450,103 +439,7 @@ public class DragMeets : Script
 
 	private void OnTick(object sender, EventArgs e)
 	{
-		//IL_0687: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0696: Unknown result type (might be due to invalid IL or missing references)
-		//IL_06c5: Unknown result type (might be due to invalid IL or missing references)
 		//IL_06cf: Invalid comparison between Unknown and I4
-		//IL_0795: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0721: Unknown result type (might be due to invalid IL or missing references)
-		//IL_14b5: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0810: Unknown result type (might be due to invalid IL or missing references)
-		//IL_07c1: Unknown result type (might be due to invalid IL or missing references)
-		//IL_073f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0759: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1579: Unknown result type (might be due to invalid IL or missing references)
-		//IL_158e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1593: Unknown result type (might be due to invalid IL or missing references)
-		//IL_159d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_15a2: Unknown result type (might be due to invalid IL or missing references)
-		//IL_15b5: Unknown result type (might be due to invalid IL or missing references)
-		//IL_15c4: Unknown result type (might be due to invalid IL or missing references)
-		//IL_14cd: Unknown result type (might be due to invalid IL or missing references)
-		//IL_14e1: Unknown result type (might be due to invalid IL or missing references)
-		//IL_14e6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_14fa: Unknown result type (might be due to invalid IL or missing references)
-		//IL_150e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_152e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_082a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_176f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_178e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1793: Unknown result type (might be due to invalid IL or missing references)
-		//IL_17a7: Unknown result type (might be due to invalid IL or missing references)
-		//IL_17c6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_17cb: Unknown result type (might be due to invalid IL or missing references)
-		//IL_12c4: Unknown result type (might be due to invalid IL or missing references)
-		//IL_17f6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1360: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1376: Unknown result type (might be due to invalid IL or missing references)
-		//IL_137b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1380: Unknown result type (might be due to invalid IL or missing references)
-		//IL_13a4: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0fa0: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1c4a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1c4f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1c59: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1c5e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1b49: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1816: Unknown result type (might be due to invalid IL or missing references)
-		//IL_142c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_143b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_148d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_13d0: Unknown result type (might be due to invalid IL or missing references)
-		//IL_13e6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_13eb: Unknown result type (might be due to invalid IL or missing references)
-		//IL_13f0: Unknown result type (might be due to invalid IL or missing references)
-		//IL_102b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0fb6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0fe6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0b1f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0b24: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0b2d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1c79: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1c7e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1c6a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1c6f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_19fc: Unknown result type (might be due to invalid IL or missing references)
-		//IL_08ff: Unknown result type (might be due to invalid IL or missing references)
-		//IL_090e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0913: Unknown result type (might be due to invalid IL or missing references)
-		//IL_091c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_092e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0935: Unknown result type (might be due to invalid IL or missing references)
-		//IL_093a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0943: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1c99: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1c9e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1c8a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1c8f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1cb9: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1cbe: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1caa: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1caf: Unknown result type (might be due to invalid IL or missing references)
-		//IL_18d6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_18db: Unknown result type (might be due to invalid IL or missing references)
-		//IL_18e4: Unknown result type (might be due to invalid IL or missing references)
-		//IL_18f5: Unknown result type (might be due to invalid IL or missing references)
-		//IL_186f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1883: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1888: Unknown result type (might be due to invalid IL or missing references)
-		//IL_189d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_196c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1980: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1985: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1920: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1934: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1939: Unknown result type (might be due to invalid IL or missing references)
-		//IL_193d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_1947: Unknown result type (might be due to invalid IL or missing references)
-		//IL_194c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_19c8: Unknown result type (might be due to invalid IL or missing references)
 		if (LamarComments.Count > 0 && LamarNotificationTime < Game.GameTime)
 		{
 			if (!IsAnyMeetLoaded())
@@ -1227,18 +1120,6 @@ public class DragMeets : Script
 
 	public void SmartVehicleAddition(Ped ped, Vehicle veh, bool details)
 	{
-		//IL_0001: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0006: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0012: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0022: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0032: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0042: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0052: Unknown result type (might be due to invalid IL or missing references)
-		//IL_005c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0065: Unknown result type (might be due to invalid IL or missing references)
-		//IL_006a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0170: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0172: Unknown result type (might be due to invalid IL or missing references)
 		Model val = ((Entity)ped).Model;
 		if (new List<Model>
 		{
@@ -1304,14 +1185,6 @@ public class DragMeets : Script
 
 	public void LoadMeetTriggersFromFile()
 	{
-		//IL_00cc: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00d6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00dd: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0155: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0176: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0193: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01b0: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01cd: Unknown result type (might be due to invalid IL or missing references)
 		XmlDocument xmlDocument = new XmlDocument();
 		int num = 0;
 		string[] files = Directory.GetFiles(Paths.MeetsDir);
@@ -1327,11 +1200,7 @@ public class DragMeets : Script
 			{
 				continue;
 			}
-			XmlNode xmlNode = xmlDocument.SelectSingleNode("//Trigger");
-			if (xmlNode == null)
-			{
-				xmlNode = xmlDocument.SelectSingleNode("//WaitingZone");
-			}
+			XmlNode xmlNode = MeetXml.SpawnNode(xmlDocument, out _);
 			if (xmlNode == null)
 			{
 				UI.Notify("Failed to load " + text);
@@ -1373,74 +1242,6 @@ public class DragMeets : Script
 
 	public void HandleMeetSpawnDespawn(bool immersive)
 	{
-		//IL_0010: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0039: Unknown result type (might be due to invalid IL or missing references)
-		//IL_003e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0041: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00b9: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00be: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00ed: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00d0: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0105: Unknown result type (might be due to invalid IL or missing references)
-		//IL_010a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_011f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0139: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0280: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0285: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0287: Unknown result type (might be due to invalid IL or missing references)
-		//IL_031a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_031f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03b9: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03be: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0422: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0427: Unknown result type (might be due to invalid IL or missing references)
-		//IL_04d9: Unknown result type (might be due to invalid IL or missing references)
-		//IL_04ef: Unknown result type (might be due to invalid IL or missing references)
-		//IL_04fe: Unknown result type (might be due to invalid IL or missing references)
-		//IL_05e7: Unknown result type (might be due to invalid IL or missing references)
-		//IL_05ec: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0648: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0661: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0663: Unknown result type (might be due to invalid IL or missing references)
-		//IL_073b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0740: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0747: Unknown result type (might be due to invalid IL or missing references)
-		//IL_09e3: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0997: Unknown result type (might be due to invalid IL or missing references)
-		//IL_099c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_09a3: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0a46: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0a4b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0a53: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0c7d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0c82: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0c96: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0cf0: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0d04: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0d4f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0d54: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0c43: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0bd3: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0bd8: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0e1c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0e21: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0d83: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0d88: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0e50: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0e55: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0beb: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0dd5: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0ec6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0eda: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0fac: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0fb1: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0ef7: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0f01: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0f2f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0f39: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0f4d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0f61: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0f66: Unknown result type (might be due to invalid IL or missing references)
 		Vector3 val;
 		if (IsAnyMeetLoaded())
 		{
@@ -1518,12 +1319,11 @@ public class DragMeets : Script
 						UI.Notify("~r~Failed to load " + text);
 						continue;
 					}
-					XmlNode xmlNode = xmlDocument.SelectSingleNode("//Trigger");
-					if (xmlNode == null)
+					XmlNode xmlNode = MeetXml.SpawnNode(xmlDocument, out bool usedFallback);
+					if (usedFallback)
 					{
-						File.AppendAllText(Paths.DebugLog, "\nNO MEET TRIGGER FOUND, looking for WaitingZone");
-						xmlNode = xmlDocument.SelectSingleNode("//WaitingZone");
-					}
+											File.AppendAllText(Paths.DebugLog, "\nNO MEET TRIGGER FOUND, looking for WaitingZone");
+}
 					if (xmlNode == null)
 					{
 						UI.Notify("~r~Failed to load " + text);
@@ -1902,19 +1702,9 @@ public class DragMeets : Script
 
 	public void FillWithSleepers()
 	{
-		//IL_0094: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00a2: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00a8: Invalid comparison between Unknown and I4
-		//IL_00ec: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00f8: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0104: Unknown result type (might be due to invalid IL or missing references)
-		//IL_013b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0140: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00b1: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00b7: Invalid comparison between Unknown and I4
-		//IL_00c0: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00c6: Invalid comparison between Unknown and I4
-		//IL_00cf: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00d6: Invalid comparison between Unknown and I4
 		int num = 0;
 		foreach (Racer racer2 in Racers)
@@ -2037,78 +1827,6 @@ public class DragMeets : Script
 
 	public void HandleMeet()
 	{
-		//IL_004a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_004f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0055: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0145: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01a1: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01a6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_007b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_007c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_009c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00a1: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00a7: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01da: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01df: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01c6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01d0: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01d5: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01fe: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0203: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01eb: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01f0: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01f4: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01f9: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0c47: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0c51: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0c5b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0c60: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0c65: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0c71: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00cd: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00ce: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0223: Unknown result type (might be due to invalid IL or missing references)
-		//IL_022d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0232: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0ca3: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0cad: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0cb7: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0cbc: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0cc1: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0b0c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0b11: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0b1b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0b32: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0b37: Unknown result type (might be due to invalid IL or missing references)
-		//IL_06db: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0cf5: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0d04: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0d13: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0b6f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0b76: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0b7b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0b80: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0b85: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0b55: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0d7a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0d7f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0b91: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0b93: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0275: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0284: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0bfc: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0ba9: Unknown result type (might be due to invalid IL or missing references)
-		//IL_12e1: Unknown result type (might be due to invalid IL or missing references)
-		//IL_12f5: Unknown result type (might be due to invalid IL or missing references)
-		//IL_091b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_092f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_095b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_09d6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_09e2: Unknown result type (might be due to invalid IL or missing references)
-		//IL_09ec: Unknown result type (might be due to invalid IL or missing references)
-		//IL_09f1: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0a05: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0a0a: Unknown result type (might be due to invalid IL or missing references)
 		if (Util.CanWeUse((Entity)(object)FlarePed) && FlarePedInPosition() && DynamicCrowdAreas.Count == 0 && Spectators.Count > 0)
 		{
 			Vector3 entityOffset = Util.GetEntityOffset((Entity)(object)FlarePed, -5f, RacersPerRace * 5);
@@ -2684,7 +2402,6 @@ public class DragMeets : Script
 
 	public bool PlayerNearRacers()
 	{
-		//IL_0049: Unknown result type (might be due to invalid IL or missing references)
 		if (GetPlayerRacer() != null && GetPlayerRacer().Picked == RacerStatus.NotPicked && Game.Player.Character.IsOnFoot)
 		{
 			foreach (Racer item in RacersParticipating())
@@ -2712,7 +2429,6 @@ public class DragMeets : Script
 
 	public static bool FlarePedInPosition()
 	{
-		//IL_0005: Unknown result type (might be due to invalid IL or missing references)
 		if (((Entity)FlarePed).IsInRangeOf(StartingLine, 5f) && FlarePed.IsStopped)
 		{
 			return Util.DiffBetweenAngles(((Entity)FlarePed).Heading, DragHeading - 180f) < 4.0;
@@ -2722,10 +2438,6 @@ public class DragMeets : Script
 
 	private void HandleFlarePedAI()
 	{
-		//IL_0116: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0076: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0131: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0091: Unknown result type (might be due to invalid IL or missing references)
 		if (FlarePed.RelationshipGroup != RacerRLGroup)
 		{
 			FlarePed.RelationshipGroup = RacerRLGroup;
@@ -2802,7 +2514,6 @@ public class DragMeets : Script
 
 	public static List<Racer> RacersNotParticipating(bool inWaitingArea)
 	{
-		//IL_0029: Unknown result type (might be due to invalid IL or missing references)
 		List<Racer> list = new List<Racer>();
 		foreach (Racer racer in Racers)
 		{
@@ -2824,16 +2535,6 @@ public class DragMeets : Script
 
 	private void ClearMeet(bool DeleteEverything)
 	{
-		//IL_016e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0173: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0178: Unknown result type (might be due to invalid IL or missing references)
-		//IL_017d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0188: Unknown result type (might be due to invalid IL or missing references)
-		//IL_018d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01a3: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01a8: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01ad: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01b2: Unknown result type (might be due to invalid IL or missing references)
 		PrivateMeet = false;
 		Function.Call((Hash)unchecked((ulong)(-9114364950456553926L)), new InputArgument[0]);
 		Function.Call((Hash)4509194413786734384L, new InputArgument[0]);
@@ -2905,10 +2606,6 @@ public class DragMeets : Script
 
 	private void LoadSettings(string file)
 	{
-		//IL_0371: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0376: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0387: Unknown result type (might be due to invalid IL or missing references)
-		//IL_038c: Unknown result type (might be due to invalid IL or missing references)
 		if (File.Exists(file))
 		{
 			ScriptSettings val = ScriptSettings.Load(file);
@@ -3003,36 +2700,6 @@ public class DragMeets : Script
 
 	private void SpawnDriversFromFile(List<string> NotPermitted, int maxtoadd, string LookFor)
 	{
-		//IL_0359: Unknown result type (might be due to invalid IL or missing references)
-		//IL_035e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0374: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03fc: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0401: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03e7: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03ec: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03f1: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03bd: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03c2: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03a8: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03ad: Unknown result type (might be due to invalid IL or missing references)
-		//IL_03b2: Unknown result type (might be due to invalid IL or missing references)
-		//IL_04c0: Unknown result type (might be due to invalid IL or missing references)
-		//IL_04c5: Unknown result type (might be due to invalid IL or missing references)
-		//IL_049f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_04a4: Unknown result type (might be due to invalid IL or missing references)
-		//IL_059d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_05a4: Unknown result type (might be due to invalid IL or missing references)
-		//IL_05a9: Unknown result type (might be due to invalid IL or missing references)
-		//IL_05b2: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0610: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0617: Unknown result type (might be due to invalid IL or missing references)
-		//IL_061c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0625: Unknown result type (might be due to invalid IL or missing references)
-		//IL_05dc: Unknown result type (might be due to invalid IL or missing references)
-		//IL_05e3: Unknown result type (might be due to invalid IL or missing references)
-		//IL_05e8: Unknown result type (might be due to invalid IL or missing references)
-		//IL_05f1: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0ea5: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0eab: Invalid comparison between Unknown and I4
 		File.AppendAllText(Paths.DebugLog, "\n Spawning cars");
 		if (LookFor != "")
@@ -3404,41 +3071,6 @@ public class DragMeets : Script
 
 	static DragMeets()
 	{
-		//IL_0046: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0056: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0066: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0076: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0086: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0096: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00a6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00b6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00c6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00d6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00e6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00f6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0106: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0116: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0126: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0136: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0146: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0156: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0166: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0176: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0186: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0196: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01a6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01b6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01c6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01d6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01e6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_01f6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0206: Unknown result type (might be due to invalid IL or missing references)
-		//IL_02dd: Unknown result type (might be due to invalid IL or missing references)
-		//IL_02e4: Unknown result type (might be due to invalid IL or missing references)
-		//IL_030d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0312: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0317: Unknown result type (might be due to invalid IL or missing references)
-		//IL_031c: Unknown result type (might be due to invalid IL or missing references)
 	}
 }
 

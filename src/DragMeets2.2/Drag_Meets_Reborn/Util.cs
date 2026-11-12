@@ -159,13 +159,6 @@ public class Util
 
 	public static Entity EntitySeenByPlayer()
 	{
-		//IL_0000: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0005: Unknown result type (might be due to invalid IL or missing references)
-		//IL_000f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0014: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0023: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0029: Unknown result type (might be due to invalid IL or missing references)
-		//IL_002e: Unknown result type (might be due to invalid IL or missing references)
 		RaycastResult val = World.Raycast(GameplayCamera.Position + GameplayCamera.Direction * 10f, ((Entity)Game.Player.Character).Position, (IntersectOptions)(-1));
 		if (CanWeUse(val.HitEntity))
 		{
@@ -194,17 +187,6 @@ public class Util
 
 	public static bool CarCanSeePos(Vehicle veh, Vector3 pos)
 	{
-		//IL_0001: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0006: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0009: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0017: Unknown result type (might be due to invalid IL or missing references)
-		//IL_002b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0030: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0035: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0045: Unknown result type (might be due to invalid IL or missing references)
-		//IL_004a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0050: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0055: Unknown result type (might be due to invalid IL or missing references)
 		Vector3 position = ((Entity)veh).Position;
 		if (position.DistanceTo(pos) < 100f)
 		{
@@ -219,9 +201,6 @@ public class Util
 
 	public static bool IsPointOnRoad(Vector3 pos, Entity ent)
 	{
-		//IL_0011: Unknown result type (might be due to invalid IL or missing references)
-		//IL_001f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_002d: Unknown result type (might be due to invalid IL or missing references)
 		return Function.Call<bool>((Hash)1322919935073282825L, new InputArgument[4]
 		{
 			pos.X,
@@ -257,42 +236,21 @@ public class Util
 
 	public static Vector3 GetPosAheadOf(Entity ent, int distance)
 	{
-		//IL_0001: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0007: Unknown result type (might be due to invalid IL or missing references)
-		//IL_000e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0013: Unknown result type (might be due to invalid IL or missing references)
 		return ent.Position + ent.ForwardVector * (float)distance;
 	}
 
 	public static Vector3 GetPosRightOf(Entity ent, int distance)
 	{
-		//IL_0001: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0007: Unknown result type (might be due to invalid IL or missing references)
-		//IL_000e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0013: Unknown result type (might be due to invalid IL or missing references)
 		return ent.Position + ent.RightVector * (float)distance;
 	}
 
 	public static Vector3 GetEntityOffset(Entity ent, float ahead, float right)
 	{
-		//IL_0001: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0007: Unknown result type (might be due to invalid IL or missing references)
-		//IL_000d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0012: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
-		//IL_001e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0023: Unknown result type (might be due to invalid IL or missing references)
 		return ent.Position + ent.ForwardVector * ahead + ent.RightVector * right;
 	}
 
 	public static void DrawLine(Vector3 from, Vector3 to)
 	{
-		//IL_0012: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0020: Unknown result type (might be due to invalid IL or missing references)
-		//IL_002e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_003c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_004a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0058: Unknown result type (might be due to invalid IL or missing references)
 		Function.Call((Hash)7742345298724472448L, new InputArgument[10]
 		{
 			from.X,
@@ -310,20 +268,6 @@ public class Util
 
 	public static Vector3 ToGround(Vector3 pos, float zCheck)
 	{
-		//IL_0000: Unknown result type (might be due to invalid IL or missing references)
-		//IL_000c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0011: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0016: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0023: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0028: Unknown result type (might be due to invalid IL or missing references)
-		//IL_002e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0033: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0036: Unknown result type (might be due to invalid IL or missing references)
-		//IL_003b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_003c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_003d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_004b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0049: Unknown result type (might be due to invalid IL or missing references)
 		RaycastResult val = World.Raycast(pos + new Vector3(0f, 0f, zCheck), pos + new Vector3(0f, 0f, 0f - zCheck), (IntersectOptions)1);
 		Vector3 hitCoords = val.HitCoords;
 		if (hitCoords == Vector3.Zero)
@@ -350,16 +294,6 @@ public class Util
 
 	public static void HaltVehicle(Ped ped)
 	{
-		//IL_0010: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0021: Unknown result type (might be due to invalid IL or missing references)
-		//IL_002b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0030: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0031: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0032: Unknown result type (might be due to invalid IL or missing references)
-		//IL_005d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_003f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0050: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0055: Unknown result type (might be due to invalid IL or missing references)
 		Vehicle currentVehicle = ped.CurrentVehicle;
 		if (CanWeUse((Entity)(object)currentVehicle))
 		{
@@ -398,14 +332,6 @@ public class Util
 
 	public static double AngleBetween(Vector3 vector1, Vector3 vector2)
 	{
-		//IL_0000: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0006: Unknown result type (might be due to invalid IL or missing references)
-		//IL_000d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0013: Unknown result type (might be due to invalid IL or missing references)
-		//IL_001c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0022: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0029: Unknown result type (might be due to invalid IL or missing references)
-		//IL_002f: Unknown result type (might be due to invalid IL or missing references)
 		double y = vector1.X * vector2.Y - vector2.X * vector1.Y;
 		double x = vector1.X * vector2.X + vector1.Y * vector2.Y;
 		return Math.Atan2(y, x) * (180.0 / Math.PI);
@@ -423,10 +349,6 @@ public class Util
 
 	public static bool IsPosAheadentity(Entity ent, Vector3 pos, float threshold)
 	{
-		//IL_001a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0028: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0036: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0042: Unknown result type (might be due to invalid IL or missing references)
 		return Function.Call<Vector3>((Hash)2482816124249826099L, new InputArgument[4]
 		{
 			ent,
@@ -438,10 +360,6 @@ public class Util
 
 	public static bool IsPosRightOf(Entity ent, Vector3 pos, float threshold)
 	{
-		//IL_001a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0028: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0036: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0042: Unknown result type (might be due to invalid IL or missing references)
 		return Function.Call<Vector3>((Hash)2482816124249826099L, new InputArgument[4]
 		{
 			ent,
@@ -457,13 +375,7 @@ public class Util
 
 	public static void TempAction(Ped ped, Vehicle veh, int action, int time)
 	{
-		//IL_0001: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0006: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0007: Unknown result type (might be due to invalid IL or missing references)
 		//IL_000d: Expected Obj, but got Unknown
-		//IL_0068: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0076: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0084: Unknown result type (might be due to invalid IL or missing references)
 		Vector3 position = ((Entity)veh).Position;
 		TaskSequence val = new TaskSequence();
 		Function.Call((Hash)unchecked((ulong)(-4311672250463297239L)), new InputArgument[4]
@@ -491,13 +403,6 @@ public class Util
 
 	public static void DrawTextHere(string text, float scale, Vector3 pos, Color color)
 	{
-		//IL_0000: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0010: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0015: Unknown result type (might be due to invalid IL or missing references)
-		//IL_001a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_001f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0104: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0112: Unknown result type (might be due to invalid IL or missing references)
 		Vector2 val = World3DToScreen2d(pos + new Vector3(0f, 0f, 1.5f));
 		Function.Call((Hash)2736978246810207435L, new InputArgument[1] { "STRING" });
 		Function.Call((Hash)unchecked((ulong)(-4598371208749279093L)), new InputArgument[1] { true });
@@ -533,14 +438,8 @@ public class Util
 
 	public static Vector2 World3DToScreen2d(Vector3 pos)
 	{
-		//IL_0000: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0006: Expected Obj, but got Unknown
-		//IL_0006: Unknown result type (might be due to invalid IL or missing references)
 		//IL_000c: Expected Obj, but got Unknown
-		//IL_001d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_002b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0039: Unknown result type (might be due to invalid IL or missing references)
-		//IL_005f: Unknown result type (might be due to invalid IL or missing references)
 		OutputArgument val = new OutputArgument();
 		OutputArgument val2 = new OutputArgument();
 		Function.Call<bool>((Hash)3812348786834502901L, new InputArgument[5]
@@ -605,13 +504,6 @@ public class Util
 
 	public static Vector3 LerpByDistance(Vector3 A, Vector3 B, float x)
 	{
-		//IL_0001: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0002: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0003: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0008: Unknown result type (might be due to invalid IL or missing references)
-		//IL_000d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0012: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0013: Unknown result type (might be due to invalid IL or missing references)
 		return x * Vector3.Normalize(B - A) + A;
 	}
 
@@ -626,7 +518,6 @@ public class Util
 
 	public static Vector3 GetBoneCoords(Entity entity, int boneIndex)
 	{
-		//IL_0021: Unknown result type (might be due to invalid IL or missing references)
 		return Function.Call<Vector3>((Hash)4947482061849130808L, new InputArgument[2]
 		{
 			entity,
@@ -636,7 +527,6 @@ public class Util
 
 	public static float ForwardSpeed(Vehicle veh)
 	{
-		//IL_0029: Unknown result type (might be due to invalid IL or missing references)
 		if (CanWeUse((Entity)(object)veh))
 		{
 			return Function.Call<Vector3>((Hash)unchecked((ulong)(-7310063430528173299L)), new InputArgument[2]
@@ -650,11 +540,6 @@ public class Util
 
 	public static void ForceNitro(Vehicle veh)
 	{
-		//IL_00a0: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00a5: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00e7: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00f6: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0105: Unknown result type (might be due to invalid IL or missing references)
 		if (!CanWeUse((Entity)(object)veh))
 		{
 			return;
@@ -736,16 +621,12 @@ public class Util
 
 	public static string GetInstructionalButton(Control key)
 	{
-		//IL_0005: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0007: Expected I4, but got Unknown
 		return "~" + ((InstructionalButtonName)key/*cast due to constrained. prefix*/).ToString() + "~";
 	}
 
 	public static void RandomTuning(Vehicle veh, bool neons, bool horn)
 	{
-		//IL_004f: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0072: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00b4: Unknown result type (might be due to invalid IL or missing references)
 		//IL_00bb: Expected I4, but got Unknown
 		Function.Call((Hash)2245783831530643834L, new InputArgument[2]
 		{
@@ -782,36 +663,6 @@ public class Util
 
 	public static float Clearance(Vehicle veh, bool back)
 	{
-		//IL_0059: Unknown result type (might be due to invalid IL or missing references)
-		//IL_006d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0072: Unknown result type (might be due to invalid IL or missing references)
-		//IL_007c: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0081: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0082: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0084: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0098: Unknown result type (might be due to invalid IL or missing references)
-		//IL_009d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00a3: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00a8: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0005: Unknown result type (might be due to invalid IL or missing references)
-		//IL_000a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_000e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0022: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0027: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0028: Unknown result type (might be due to invalid IL or missing references)
-		//IL_002e: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0033: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0034: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0035: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0045: Unknown result type (might be due to invalid IL or missing references)
-		//IL_004a: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0050: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0055: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00a9: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00ac: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00b8: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00bd: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00c1: Unknown result type (might be due to invalid IL or missing references)
 		Vector3 val;
 		RaycastResult val2;
 		if (back)
@@ -838,7 +689,6 @@ public class Util
 
 	public static bool IsSliding(Vehicle veh, float threshold)
 	{
-		//IL_0021: Unknown result type (might be due to invalid IL or missing references)
 		return Math.Abs(Function.Call<Vector3>((Hash)unchecked((ulong)(-7310063430528173299L)), new InputArgument[2]
 		{
 			veh,
@@ -848,27 +698,14 @@ public class Util
 
 	public static string SaveDriverToFile(string name, Ped ped, Vehicle veh, string filePath, bool SavePerfMods, bool SaveVisualMods, string kind, int avgShiftingSkill, int avgReactionTime)
 	{
-		//IL_0108: Unknown result type (might be due to invalid IL or missing references)
-		//IL_010d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0182: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0187: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0209: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0210: Expected I4, but got Unknown
-		//IL_0236: Unknown result type (might be due to invalid IL or missing references)
 		//IL_023d: Expected I4, but got Unknown
-		//IL_0263: Unknown result type (might be due to invalid IL or missing references)
 		//IL_026a: Expected I4, but got Unknown
-		//IL_0290: Unknown result type (might be due to invalid IL or missing references)
 		//IL_0297: Expected I4, but got Unknown
-		//IL_02bd: Unknown result type (might be due to invalid IL or missing references)
 		//IL_02c4: Expected I4, but got Unknown
-		//IL_02ea: Unknown result type (might be due to invalid IL or missing references)
 		//IL_02f1: Expected I4, but got Unknown
-		//IL_0317: Unknown result type (might be due to invalid IL or missing references)
 		//IL_031e: Expected I4, but got Unknown
-		//IL_0344: Unknown result type (might be due to invalid IL or missing references)
 		//IL_034b: Expected I4, but got Unknown
-		//IL_0395: Unknown result type (might be due to invalid IL or missing references)
 		//IL_039c: Expected I4, but got Unknown
 		UI.Notify(filePath);
 		string result = "";
@@ -1093,10 +930,6 @@ public class Util
 
 	public static float CalculatePerformancePoints(Vehicle veh)
 	{
-		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
-		//IL_001d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0051: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0056: Unknown result type (might be due to invalid IL or missing references)
 		float num = 0f;
 		InputArgument[] array = new InputArgument[1];
 		Model model = ((Entity)veh).Model;
@@ -1120,8 +953,6 @@ public class Util
 
 	public static float CalculateAcc(Vehicle veh)
 	{
-		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
-		//IL_001d: Unknown result type (might be due to invalid IL or missing references)
 		float num = 0f;
 		InputArgument[] array = new InputArgument[1];
 		Model model = ((Entity)veh).Model;
@@ -1132,10 +963,6 @@ public class Util
 
 	public static float CalculateTopSpeed(Vehicle veh)
 	{
-		//IL_0018: Unknown result type (might be due to invalid IL or missing references)
-		//IL_001d: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0051: Unknown result type (might be due to invalid IL or missing references)
-		//IL_0056: Unknown result type (might be due to invalid IL or missing references)
 		float num = 0f;
 		InputArgument[] array = new InputArgument[1];
 		Model model = ((Entity)veh).Model;
@@ -1250,18 +1077,6 @@ public class Util
 
 	static Util()
 	{
-		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_001b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_002b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_003b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_004b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_005b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_006b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_007b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_008b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_009b: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00ab: Unknown result type (might be due to invalid IL or missing references)
-		//IL_00bb: Unknown result type (might be due to invalid IL or missing references)
 	}
 }
 
