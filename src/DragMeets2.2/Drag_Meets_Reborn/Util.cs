@@ -1082,14 +1082,7 @@ public class Util
 		return Function.Call<bool>((Hash)6160435850588389544L, new InputArgument[1] { Game.GenerateHash(cheat) });
 	}
 
-	public unsafe static int CurrentGear(Vehicle v)
-	{
-		ulong num = (ulong)((Entity)v).MemoryAddress;
-		ulong num2 = 2032uL;
-		return *(int*)(num + num2);
-	}
-
-	public static bool HasCustomTires(Vehicle veh)
+		public static bool HasCustomTires(Vehicle veh)
 	{
 		return Function.Call<bool>((Hash)unchecked((ulong)(-5507252750051666468L)), new InputArgument[2]
 		{
