@@ -926,6 +926,12 @@ public class DragMeets : Script
 				item5.TaskRace();
 			}
 			FlarePed.Task.Cower(3000);
+			string gridOrder = "";
+			foreach (Racer startingRacer in RacersParticipating())
+			{
+				gridOrder += startingRacer.Name + " | ";
+			}
+			File.AppendAllText(Paths.DebugLog, string.Concat("\nRACE STARTED - ", Math.Round(StartingLine.DistanceTo(Finishline)), " m - grid: ", gridOrder));
 			MeetState = DragRaceState.RaceInProgress;
 			Function.Call((Hash)5238680789324452053L, new InputArgument[3]
 			{
@@ -2162,6 +2168,12 @@ public class DragMeets : Script
 			{
 				Function.Call((Hash)unchecked((ulong)(-9114364950456553926L)), new InputArgument[0]);
 				Function.Call((Hash)4509194413786734384L, new InputArgument[0]);
+				string finishOrder = "";
+				foreach (Racer winner in Winners)
+				{
+					finishOrder += winner.Name + " > ";
+				}
+				File.AppendAllText(Paths.DebugLog, string.Concat("\nRACE FINISHED - order: ", finishOrder));
 				MeetState = DragRaceState.RaceFinished;
 			}
 			break;
