@@ -1738,56 +1738,117 @@ public class DragMeets : Script
 		}
 	}
 
+	// How many racers a meet builds up, and how many random picks it may spend trying to reach that.
+	private const int SleeperFillTarget = 4;
+	private const int SleeperFillAttemptCap = 20;
+
+	// The engine-power value each branch writes. Racer.cs adds it straight into the power multiplier.
+	private const int EmsFiveTurbo = 200;
+	private const int SleeperTurboMin = 20;
+	private const int SleeperTurboMax = 100;
+
+	/// <summary>
+	/// Builds up to <see cref="SleeperFillTarget"/> racers that look ordinary: a coin toss either fits
+	/// a visible engine or leaves the car stock with a strong engine under the bonnet. Called once
+	/// while a meet is built, after its cars are in the world.
+	/// </summary>
 	public void FillWithSleepers()
 	{
-		//IL_00a8: Invalid comparison between Unknown and I4
-		//IL_00b7: Invalid comparison between Unknown and I4
-		//IL_00c6: Invalid comparison between Unknown and I4
-		//IL_00d6: Invalid comparison between Unknown and I4
-		int num = 0;
-		foreach (Racer racer2 in Racers)
-		{
-			if (!racer2.Driver.IsPlayer && racer2.CustomTurbo > 2)
-			{
-				num++;
-			}
-		}
-		int num2 = 0;
-		while (num < 4 && num2 < 20)
+		int boosted = CountTurboBoostedRacers();
+		int attempts = 0;
+		while (boosted < SleeperFillTarget && attempts < SleeperFillAttemptCap)
 		{
 			Racer racer = Racers[Util.RandomInt(0, Racers.Count - 1)];
-			if (!racer.Driver.IsPlayer && racer.CustomTurbo < 2 && ((int)racer.Car.ClassType == 0 || (int)racer.Car.ClassType == 2 || (int)racer.Car.ClassType == 3 || (int)racer.Car.ClassType == 1 || (int)racer.Car.ClassType == 12))
+			if (IsSleeperCandidate(racer))
 			{
 				if (Util.ThrowDice(50))
 				{
-					Prop val = World.CreateProp("prop_car_engine_01", ((Entity)racer.Car).Position, ((Entity)racer.Car).Rotation, false, false);
-					((Entity)val).AttachTo((Entity)(object)racer.Car, ((Entity)racer.Car).GetBoneIndex("engine"), new Vector3(0f, -0.04f, -0.1f), Vector3.Zero);
-					racer.SuperEngine = val;
-					racer.CustomTurbo = 200;
-					if (DebugNotifications)
-					{
-						UI.Notify(racer.Name + " has EMS5");
-					}
-					racer.Car.SetMod((VehicleMod)23, 1, true);
-					Function.Call((Hash)unchecked((ulong)(-3110590255496472013L)), new InputArgument[3]
-					{
-						racer.Car,
-						4,
-						true
-					});
+					InstallSuperEngine(racer);
 				}
 				else
 				{
-					racer.CustomTurbo = Util.RandomInt(20, 100);
-					if (DebugNotifications)
-					{
-						UI.Notify(racer.Name + " is a sleeper");
-					}
+					RollSleeperTurbo(racer);
 				}
-				num++;
+				boosted++;
 				Script.Wait(20);
 			}
-			num2++;
+			attempts++;
+		}
+	}
+
+	/// <summary>
+	/// Racers already carrying a strong engine — either a fitted one or a rolled sleeper, since both
+	/// write a value above 2. The player is not counted.
+	/// </summary>
+	private int CountTurboBoostedRacers()
+	{
+		int count = 0;
+		foreach (Racer racer in Racers)
+		{
+			if (!racer.Driver.IsPlayer && racer.CustomTurbo > 2)
+			{
+				count++;
+			}
+		}
+		return count;
+	}
+
+	/// <summary>
+	/// Only the slow classes get a build-up — compacts, sedans, SUVs, coupes and vans — which is what
+	/// makes the result a sleeper rather than an obvious fast car. The player never qualifies.
+	/// </summary>
+	private bool IsSleeperCandidate(Racer racer)
+	{
+		if (racer.Driver.IsPlayer || racer.CustomTurbo >= 2)
+		{
+			return false;
+		}
+		switch ((int)racer.Car.ClassType)
+		{
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+		case 12:
+			return true;
+		default:
+			return false;
+		}
+	}
+
+	/// <summary>
+	/// The visible branch: a prop bolted to the engine bone, the strongest engine value, and the two
+	/// mod calls the feature ships with. The prop is stored on the racer because it is re-attached at
+	/// the starting grid and deleted on clear.
+	/// </summary>
+	private void InstallSuperEngine(Racer racer)
+	{
+		Prop engine = World.CreateProp("prop_car_engine_01", ((Entity)racer.Car).Position, ((Entity)racer.Car).Rotation, false, false);
+		((Entity)engine).AttachTo((Entity)(object)racer.Car, ((Entity)racer.Car).GetBoneIndex("engine"), new Vector3(0f, -0.04f, -0.1f), Vector3.Zero);
+		racer.SuperEngine = engine;
+		racer.CustomTurbo = EmsFiveTurbo;
+		if (DebugNotifications)
+		{
+			UI.Notify(racer.Name + " has EMS5");
+		}
+		racer.Car.SetMod((VehicleMod)23, 1, true);
+		Function.Call((Hash)unchecked((ulong)(-3110590255496472013L)), new InputArgument[3]
+		{
+			racer.Car,
+			4,
+			true
+		});
+	}
+
+	/// <summary>
+	/// The hidden branch: nothing visible changes, only the engine value.
+	/// </summary>
+	private void RollSleeperTurbo(Racer racer)
+	{
+		racer.CustomTurbo = Util.RandomInt(SleeperTurboMin, SleeperTurboMax);
+		if (DebugNotifications)
+		{
+			UI.Notify(racer.Name + " is a sleeper");
 		}
 	}
 

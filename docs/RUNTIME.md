@@ -94,6 +94,25 @@ Two kinds of line now sit in it: the shipped ones, kept byte-compatible so sessi
 the 2.2 build, and the scaffolding added for observation (timestamped state and tick lines, and a dump
 of the settings in effect). The scaffolding is temporary and must be removed before release.
 
+## Hidden couplings
+
+**The sleeper engine.** While a meet is being built, up to four non-player racers in the slow classes
+(compacts, sedans, SUVs, coupes, vans) are candidates for a build-up. For each one a coin toss decides
+between two branches: fit a visible engine prop (`prop_car_engine_01`, attached to the engine bone,
+announced as *"has EMS5"*) or leave the car looking stock (a *"sleeper"*).
+
+Both branches write the same integer, `CustomTurbo`, and that integer is added straight into the car's
+engine-power multiplier: **1** by default, **20-100** for a sleeper, **200** for the visible build. The
+prop is decoration; the number is the physics.
+
+What this couples to, before anyone touches it:
+
+- the car's `PerformancePoints` are computed from the car itself, never from `CustomTurbo`, so the
+  betting and pairing logic reads a juiced car as slow — by design or by oversight, unverified;
+- the class filter is what makes it a sleeper: only the slow classes qualify, and the player never does;
+- a roster entry can arrive pre-juiced, because the integer is read from `Racers.xml`;
+- the routine that does all this is named after its losing branch and performs both jobs.
+
 ## Open questions
 
 Each of these is a gap in the description above, not a task:
