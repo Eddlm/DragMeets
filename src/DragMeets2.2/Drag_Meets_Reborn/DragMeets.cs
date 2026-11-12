@@ -1370,7 +1370,7 @@ public class DragMeets : Script
 				UI.Notify("Failed to load " + text);
 				continue;
 			}
-			Vector3 val = new Vector3((float)int.Parse(xmlNode.SelectSingleNode("X").InnerText, CultureInfo.InvariantCulture), (float)int.Parse(xmlNode.SelectSingleNode("Y").InnerText, CultureInfo.InvariantCulture), (float)int.Parse(xmlNode.SelectSingleNode("Z").InnerText, CultureInfo.InvariantCulture));
+			Vector3 val = XmlRead.TruncatedVector(xmlNode);
 			MeetTriggers.Add(val);
 			Blip val2 = World.CreateBlip(val);
 			val2.Sprite = (BlipSprite)108;
@@ -1563,7 +1563,7 @@ public class DragMeets : Script
 						continue;
 					}
 					File.AppendAllText(Paths.DebugLog, " - WaitingZone found");
-					Vector3 val2 = new Vector3(float.Parse(xmlNode.SelectSingleNode("X").InnerText, CultureInfo.InvariantCulture), float.Parse(xmlNode.SelectSingleNode("Y").InnerText, CultureInfo.InvariantCulture), float.Parse(xmlNode.SelectSingleNode("Z").InnerText, CultureInfo.InvariantCulture));
+					Vector3 val2 = XmlRead.Vector(xmlNode);
 					if (!(meetTrigger == val2))
 					{
 						continue;
@@ -1574,7 +1574,7 @@ public class DragMeets : Script
 						Game.FadeScreenOut(500);
 					}
 					XmlNode xmlNode2 = xmlDocument.SelectSingleNode("//StartingLine");
-					StartingLine = new Vector3(float.Parse(xmlNode2.SelectSingleNode("X").InnerText, CultureInfo.InvariantCulture), float.Parse(xmlNode2.SelectSingleNode("Y").InnerText, CultureInfo.InvariantCulture), float.Parse(xmlNode2.SelectSingleNode("Z").InnerText, CultureInfo.InvariantCulture));
+					StartingLine = XmlRead.Vector(xmlNode2);
 					string text2 = "";
 					xmlNode2 = xmlDocument.SelectSingleNode("//StartingLine/Prop");
 					if (xmlNode2 != null)
@@ -1586,9 +1586,9 @@ public class DragMeets : Script
 						UI.Notify("~r~StartingLine/Prop not found");
 					}
 					xmlNode2 = xmlDocument.SelectSingleNode("//FinishLine");
-					Finishline = new Vector3(float.Parse(xmlNode2.SelectSingleNode("X").InnerText, CultureInfo.InvariantCulture), float.Parse(xmlNode2.SelectSingleNode("Y").InnerText, CultureInfo.InvariantCulture), float.Parse(xmlNode2.SelectSingleNode("Z").InnerText, CultureInfo.InvariantCulture));
+					Finishline = XmlRead.Vector(xmlNode2);
 					xmlNode2 = xmlDocument.SelectSingleNode("//WaitingZone");
-					WaitingArea = new Vector3(float.Parse(xmlNode2.SelectSingleNode("X").InnerText, CultureInfo.InvariantCulture), float.Parse(xmlNode2.SelectSingleNode("Y").InnerText, CultureInfo.InvariantCulture), float.Parse(xmlNode2.SelectSingleNode("Z").InnerText, CultureInfo.InvariantCulture));
+					WaitingArea = XmlRead.Vector(xmlNode2);
 					string text3 = "";
 					xmlNode2 = xmlDocument.SelectSingleNode("//WaitingZone/Prop");
 					if (xmlNode2 != null)
@@ -1649,7 +1649,7 @@ public class DragMeets : Script
 					Vector3 pathToStartingLine = Vector3.Zero;
 					if (xmlNode2 != null)
 					{
-						pathToStartingLine = new Vector3((float)int.Parse(xmlNode2.SelectSingleNode("X").InnerText, CultureInfo.InvariantCulture), (float)int.Parse(xmlNode2.SelectSingleNode("Y").InnerText, CultureInfo.InvariantCulture), (float)int.Parse(xmlNode2.SelectSingleNode("Z").InnerText, CultureInfo.InvariantCulture));
+						pathToStartingLine = XmlRead.TruncatedVector(xmlNode2);
 					}
 					else if (DebugNotifications)
 					{
@@ -1666,7 +1666,7 @@ public class DragMeets : Script
 					}
 					foreach (XmlElement item4 in xmlDocument.SelectNodes("//PathToWaitingArea/*"))
 					{
-						Vector3 item = new Vector3((float)int.Parse(item4.SelectSingleNode("X").InnerText, CultureInfo.InvariantCulture), (float)int.Parse(item4.SelectSingleNode("Y").InnerText, CultureInfo.InvariantCulture), (float)int.Parse(item4.SelectSingleNode("Z").InnerText, CultureInfo.InvariantCulture));
+						Vector3 item = XmlRead.TruncatedVector(item4);
 						ToWaitingArea.Add(item);
 					}
 					xmlNode2 = xmlDocument.SelectSingleNode("//CarsPerRace");
@@ -1726,7 +1726,7 @@ public class DragMeets : Script
 					{
 						foreach (XmlElement item6 in xmlDocument.SelectNodes("//CrowdAreas/*"))
 						{
-							Vector3 item2 = new Vector3((float)int.Parse(item6.SelectSingleNode("X").InnerText, CultureInfo.InvariantCulture), (float)int.Parse(item6.SelectSingleNode("Y").InnerText, CultureInfo.InvariantCulture), (float)int.Parse(item6.SelectSingleNode("Z").InnerText, CultureInfo.InvariantCulture));
+							Vector3 item2 = XmlRead.TruncatedVector(item6);
 							CrowdAreas.Add(item2);
 						}
 					}
