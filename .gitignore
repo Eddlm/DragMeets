@@ -41,3 +41,23 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# =========================
+# Drag Meets — build and working files
+# =========================
+
+# build output
+bin/
+obj/
+*.user
+*.suo
+
+# local working zones: release packages, decompiler dumps, scratch trees
+/orig/
+/work/
+
+# pre-reorganisation copies left in place on disk; the tracked home is vendor/eddlm-2017
+/Drag Meets Reborn/
+/Drag Meets Reborn.sln
+/src/DragMeetsReborn/
+
