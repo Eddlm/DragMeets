@@ -1,0 +1,49 @@
+<Data>
+	<!-- Drag Meet in the Windmill Farm -->
+	<Races>	
+		<Drag>
+				<Fee>200</Fee>
+		<Prize>1000</Prize>
+			<Touge>true</Touge>
+			<CarsAllowed>				
+				<Kind>OfficialSuper</Kind>
+			</CarsAllowed>
+			<MaxCarLimit>10</MaxCarLimit>
+						<CarsPerRace>2</CarsPerRace>
+<SeparationBetweenCars>4</SeparationBetweenCars>
+			<PathToWaitingArea>
+				<Path>
+					<X>-2350</X>
+					<Y>307</Y>
+					<Z>169</Z>
+				</Path>
+				<Path>
+					<X>-1848</X>
+					<Y>52</Y>
+					<Z>77</Z>
+				</Path>
+			</PathToWaitingArea>
+			<StartingLine>
+				<X>-1854</X>
+				<Y>85</Y>
+				<Z>79</Z>
+			</StartingLine>
+			<FinishLine>
+				<X>-2304</X>
+				<Y>459</Y>
+				<Z>174</Z>		
+			</FinishLine>
+			<WaitingZone>
+				<X>-1734</X>
+				<Y>72</Y>
+				<Z>66</Z>		
+								<Prop>prop_amb_ciggy_01</Prop>
+				<Radius>10</Radius>					
+			</WaitingZone>
+
+			<Heading>52</Heading>
+						<TougeHeading>173</TougeHeading>
+
+		</Drag>
+	</Races>
+</Data>

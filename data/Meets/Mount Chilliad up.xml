@@ -1,0 +1,34 @@
+<Data>
+	<!-- Drag Meet in the Windmill Farm -->
+	<Races>	
+		<Drag>
+						<Touge>true</Touge>
+
+			<CarsAllowed>				
+				<Kind>Average</Kind>
+			</CarsAllowed>
+			<MaxCarLimit>8</MaxCarLimit>
+			<CarsPerRace>2</CarsPerRace>
+			<SeparationBetweenCars>1</SeparationBetweenCars>
+			<StartingLine>
+				<X>-1541</X>
+				<Y>4738</Y>
+				<Z>51</Z>
+			</StartingLine>
+			<FinishLine>
+				<X>-1316</X>
+				<Y>4851</Y>
+				<Z>143</Z>		
+			</FinishLine>
+			<WaitingZone>
+				<X>-1633</X>
+				<Y>4735</Y>
+				<Z>52</Z>		
+				<Radius>10</Radius>					
+			</WaitingZone>
+			<Heading>276</Heading>
+						<TougeHeading>303</TougeHeading>
+
+		</Drag>
+	</Races>
+</Data>
