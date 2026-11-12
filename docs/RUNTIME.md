@@ -42,7 +42,9 @@ the fadeout, so it is a cost to know about, not a defect to chase.
 Leaving the area does **not** unwind the meet. Mid-race, the state jumps straight to `NotStarted`, the
 meet is no longer loaded, and everything it was holding is dropped. Measured: `RaceInProgress` to
 `NotStarted` in one step, skipping `RaceFinished` and `Idle` entirely. The exit path therefore cannot be
-reasoned about as the reverse of setup.
+reasoned about as the reverse of setup. It does the same from `Setup` — observed 2026-11-12 as
+`Setup -> NotStarted` with `loaded=false` on the next heartbeat — so the jump is the shape of every
+exit, whatever the meet was doing.
 
 ## The pieces
 
@@ -150,5 +152,7 @@ Each of these is a gap in the description above, not a task:
 - **Why the despawn lands on `NotStarted`** rather than a teardown path, and whether anything it held
   leaks — a car, a ped, a blip.
 - **What `Setup` spends its 25–32 seconds on**: racer construction, file parsing, or fade sequencing.
-- **Whether a grid larger than two changes the finish accounting.** Every race observed had exactly two
-  participants.
+- **Whether a grid larger than two changes the finish accounting.** ~~Every race observed had exactly two
+  participants.~~ **Answered 2026-11-12:** four-car grids finish and report a full order —
+  `RACE FINISHED - order: Eddlmv2 > Guardian > Dubsta 6x6 > Bifta >`, and again AI-only with
+  `Enduro > Injection > Rancher XL > Sandking SWB>`.
