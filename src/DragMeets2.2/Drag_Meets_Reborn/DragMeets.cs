@@ -982,7 +982,7 @@ public class DragMeets : Script
 			{
 				gridOrder += startingRacer.Name + " | ";
 			}
-			File.AppendAllText(Paths.DebugLog, string.Concat("\nRACE STARTED - ", Math.Round(StartingLine.DistanceTo(Finishline)), " m - grid: ", gridOrder));
+			Log.Raw(string.Concat("\nRACE STARTED - ", Math.Round(StartingLine.DistanceTo(Finishline)), " m - grid: ", gridOrder));
 			MeetState = DragRaceState.RaceInProgress;
 			Function.Call((Hash)5238680789324452053L, new InputArgument[3]
 			{
@@ -1363,7 +1363,7 @@ public class DragMeets : Script
 					// (MountainBesidesTrevorsAirfield and the Sandy Shores Airfield are 297.8 m apart).
 					break;
 				}
-				File.AppendAllText(Paths.DebugLog, "\n Spawning new meet, looking for meet file...");
+				Log.Raw("\n Spawning new meet, looking for meet file...");
 				LoadSettings(configpath);
 				foreach (MeetFile meetFile in MeetFiles)
 				{
@@ -1373,7 +1373,7 @@ public class DragMeets : Script
 					{
 						continue;
 					}
-					File.AppendAllText(Paths.DebugLog, "\nMatching MeetFile found. Loading " + text + "...");
+					Log.Raw("\nMatching MeetFile found. Loading " + text + "...");
 					if (!immersive)
 					{
 						Game.FadeScreenOut(500);
@@ -1535,7 +1535,7 @@ public class DragMeets : Script
 							CrowdAreas.Add(item2);
 						}
 					}
-					File.AppendAllText(Paths.DebugLog, "\nAll meet info loaded.");
+					Log.Raw("\nAll meet info loaded.");
 					Vehicle[] nearbyVehicles = World.GetNearbyVehicles(((Entity)Game.Player.Character).Position, 40f);
 					foreach (Vehicle val4 in nearbyVehicles)
 					{
@@ -1577,8 +1577,8 @@ public class DragMeets : Script
 						Util.AddQueuedHelpText("This is a ~b~Private Meet~w~. No Racers will join this meet unless they're added by you.");
 						PrivateMeet = true;
 					}
-					File.AppendAllText(Paths.DebugLog, "\nAll cars spawned.");
-					File.AppendAllText(Paths.DebugLog, "\nSetting up CrowdAreas.");
+					Log.Raw("\nAll cars spawned.");
+					Log.Raw("\nSetting up CrowdAreas.");
 					if (!FPSFriendly)
 					{
 						if (CrowdAreas.Count > 0)
@@ -1601,7 +1601,7 @@ public class DragMeets : Script
 						}
 					}
 					MeetState = DragRaceState.Idle;
-					File.AppendAllText(Paths.DebugLog, "\nSpawning FinishBarrel...");
+					Log.Raw("\nSpawning FinishBarrel...");
 					FinishBarrel = World.CreateProp("prop_offroad_barrel01", Finishline, new Vector3(0f, 0f, TougeHeading), false, true);
 					((Entity)FinishBarrel).IsPersistent = true;
 					Function.Call((Hash)992985146056095358L, new InputArgument[2]
@@ -1611,7 +1611,7 @@ public class DragMeets : Script
 					});
 					((Entity)FinishBarrel).ApplyForce(new Vector3(0f, 0f, -1f), new Vector3(0f, 0f, 0f));
 					Function.Call((Hash)6388445041372756643L, new InputArgument[1] { FinishBarrel });
-					File.AppendAllText(Paths.DebugLog, "\nSpawning FlarePed...");
+					Log.Raw("\nSpawning FlarePed...");
 					if (!Util.CanWeUse((Entity)(object)FlarePed))
 					{
 						FlarePed = World.CreatePed((PedHash)2014052797, StartingLine);
@@ -1628,7 +1628,7 @@ public class DragMeets : Script
 					}
 					if (num3 == 100)
 					{
-						File.AppendAllText(Paths.DebugLog, "\nSpawning FlarePed failed! Random ped model selected.");
+						Log.Raw("\nSpawning FlarePed failed! Random ped model selected.");
 						num3 = 0;
 						while (Util.CanWeUse((Entity)(object)FlarePed) && num3 < 100)
 						{
@@ -1641,12 +1641,12 @@ public class DragMeets : Script
 					}
 					if (!Util.CanWeUse((Entity)(object)FlarePed))
 					{
-						File.AppendAllText(Paths.DebugLog, "\nSpawning alternative FlarePed ALSO failed! Michael ped model selected.");
+						Log.Raw("\nSpawning alternative FlarePed ALSO failed! Michael ped model selected.");
 						FlarePed = World.CreatePed((PedHash)225514697, StartingLine);
 					}
 					if (!Util.CanWeUse((Entity)(object)FlarePed))
 					{
-						File.AppendAllText(Paths.DebugLog, "\nSpawning alternative FlarePed ALSO failed! Trevor ped model selected.");
+						Log.Raw("\nSpawning alternative FlarePed ALSO failed! Trevor ped model selected.");
 						FlarePed = World.CreatePed(unchecked((PedHash)(-1686040670)), StartingLine);
 					}
 					((Entity)FlarePed).Heading = DragHeading + 180f;
@@ -1660,7 +1660,7 @@ public class DragMeets : Script
 					}
 					if (text2 != "")
 					{
-						File.AppendAllText(Paths.DebugLog, "\nSpawning StartingLineProp...");
+						Log.Raw("\nSpawning StartingLineProp...");
 						Prop val6 = World.CreateProp(text2, Util.GetEntityOffset((Entity)(object)FlarePed, -3f, 0f), false, true);
 						if (CanWeUse((Entity)(object)val6))
 						{
@@ -1681,12 +1681,12 @@ public class DragMeets : Script
 						}
 						else
 						{
-							File.AppendAllText(Paths.DebugLog, "\nWARNING, failed to spawn the props for the starting line.");
+							Log.Raw("\nWARNING, failed to spawn the props for the starting line.");
 						}
 					}
 					if (text3 != "")
 					{
-						File.AppendAllText(Paths.DebugLog, "\nSpawning WaitingZoneProp...");
+						Log.Raw("\nSpawning WaitingZoneProp...");
 						Prop val8 = World.CreateProp(text3, WaitingArea, false, true);
 						if (CanWeUse((Entity)(object)val8))
 						{
@@ -1695,7 +1695,7 @@ public class DragMeets : Script
 						}
 						else
 						{
-							File.AppendAllText(Paths.DebugLog, "\nWARNING, failed to spawn the props for the waiting zone.");
+							Log.Raw("\nWARNING, failed to spawn the props for the waiting zone.");
 						}
 					}
 					DevChatter = true;
@@ -1707,9 +1707,9 @@ public class DragMeets : Script
 						Util.AddQueuedHelpText("~g~[Eddlm]:~w~ BTW, while you're registered in the meet, you can enter new cars to spawn opponents.");
 						DevChatter = true;
 					}
-					File.AppendAllText(Paths.DebugLog, " - Filling with sleepers...");
+					Log.Raw(" - Filling with sleepers...");
 					FillWithSleepers();
-					File.AppendAllText(Paths.DebugLog, " - Meet loaded. Have fun.");
+					Log.Raw(" - Meet loaded. Have fun.");
 					break;
 				}
 				break;
@@ -2205,7 +2205,7 @@ public class DragMeets : Script
 				{
 					finishOrder += winner.Name + " > ";
 				}
-				File.AppendAllText(Paths.DebugLog, string.Concat("\nRACE FINISHED - order: ", finishOrder));
+				Log.Raw(string.Concat("\nRACE FINISHED - order: ", finishOrder));
 				MeetState = DragRaceState.RaceFinished;
 			}
 			break;
@@ -2745,7 +2745,7 @@ public class DragMeets : Script
 	private void SpawnDriversFromFile(List<string> NotPermitted, int maxtoadd, string LookFor)
 	{
 		//IL_0eab: Invalid comparison between Unknown and I4
-		File.AppendAllText(Paths.DebugLog, "\n Spawning cars");
+		Log.Raw("\n Spawning cars");
 		if (LookFor != "")
 		{
 			maxtoadd = 1;
@@ -2821,7 +2821,7 @@ public class DragMeets : Script
 			{
 				continue;
 			}
-			File.AppendAllText(Paths.DebugLog, "\n" + item3.GetAttribute("Name"));
+			Log.Raw("\n" + item3.GetAttribute("Name"));
 			Vector3 val = WaitingArea.Around(4f);
 			num3 += 3f;
 			if (((Entity)Game.Player.Character).IsInRangeOf(WaitingArea, 200f))
@@ -2871,14 +2871,14 @@ public class DragMeets : Script
 				{
 					WarnPlayer(ScriptName + " " + ScriptVer, "VEHICLE LOAD ERROR", "Error trying to load " + item3.SelectSingleNode("Vehicle/Model").InnerText + ". Skipping this car.");
 				}
-				File.AppendAllText(Paths.DebugLog, " -  ERROR vehicle model not found in game files, SKIPPED");
+				Log.Raw(" -  ERROR vehicle model not found in game files, SKIPPED");
 				flag2 = true;
 			}
 			if (flag2)
 			{
 				continue;
 			}
-			File.AppendAllText(Paths.DebugLog, " -  created");
+			Log.Raw(" -  created");
 			Ped val3 = null;
 			if (item3.SelectSingleNode("PedModel") != null)
 			{
@@ -2915,12 +2915,12 @@ public class DragMeets : Script
 			{
 				Script.Wait(0);
 			}
-			File.AppendAllText(Paths.DebugLog, " -  ped created");
+			Log.Raw(" -  ped created");
 			if (RandomTuningAll)
 			{
 				Script.Wait(40);
 				Util.RandomTuning(val2, neons: false, horn: false);
-				File.AppendAllText(Paths.DebugLog, " - tuned (random)");
+				Log.Raw(" - tuned (random)");
 			}
 			else if (UseDesigns)
 			{
@@ -3039,13 +3039,13 @@ public class DragMeets : Script
 					{
 						val2.SetMod((VehicleMod)int.Parse(item6.GetAttribute("ModIndex")), int.Parse(item6.InnerText, CultureInfo.InvariantCulture), bool.Parse(item3.SelectSingleNode("Vehicle/CustomTires").InnerText));
 					}
-					File.AppendAllText(Paths.DebugLog, " - tuned");
+					Log.Raw(" - tuned");
 				}
 				else if (RandomTuningGeneric)
 				{
 					Script.Wait(40);
 					Util.RandomTuning(val2, neons: false, horn: false);
-					File.AppendAllText(Paths.DebugLog, " - tuned (random)");
+					Log.Raw(" - tuned (random)");
 				}
 			}
 			int num6 = 1;
@@ -3057,7 +3057,7 @@ public class DragMeets : Script
 			num7 = ((!(item3.GetAttribute("Shifting") != "") || !(item3.GetAttribute("Shifting") != "50")) ? Util.RandomInt(35, 80) : int.Parse(item3.GetAttribute("Shifting")));
 			int num8 = 250;
 			num8 = ((!(item3.GetAttribute("Reaction") != "") || !(item3.GetAttribute("Reaction") != "250")) ? Util.RandomInt(150, 850) : int.Parse(item3.GetAttribute("Reaction")));
-			File.AppendAllText(Paths.DebugLog, " - skilled");
+			Log.Raw(" - skilled");
 			string text = val2.FriendlyName;
 			bool flag3 = true;
 			if (UseDesigns)
@@ -3109,7 +3109,7 @@ public class DragMeets : Script
 				lost = int.Parse(item3.GetAttribute("RacesLost"));
 			}
 			Racers.Add(new Racer(text, val3, val2, num6, num8, num7, !flag, won, lost, money, parachute, flag3));
-			File.AppendAllText(Paths.DebugLog, " - finished ");
+			Log.Raw(" - finished ");
 		}
 	}
 

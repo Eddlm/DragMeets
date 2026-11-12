@@ -39,6 +39,15 @@ namespace Drag_Meets_Reborn
 		}
 
 		/// <summary>
+		/// Appends exactly what it is given, with no stamp and no newline of its own: the shape the
+		/// shipped 2.2 build wrote. Every line the script emits goes through here.
+		/// </summary>
+		public static void Raw(string text)
+		{
+			File.AppendAllText(Paths.DebugLog, text);
+		}
+
+		/// <summary>
 		/// Logs the first few exceptions in full, then stays quiet so a per-tick failure
 		/// cannot turn the log into thousands of identical lines.
 		/// </summary>
