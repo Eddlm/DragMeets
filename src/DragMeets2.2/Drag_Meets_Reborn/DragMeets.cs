@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
@@ -1386,10 +1386,7 @@ public class DragMeets : Script
 					{
 						text2 = xmlNode2.InnerText;
 					}
-					else if (DebugNotifications)
-					{
-						UI.Notify("~r~StartingLine/Prop not found");
-					}
+					else ReportMissingField("StartingLine/Prop");
 					xmlNode2 = xmlDocument.SelectSingleNode("//FinishLine");
 					Finishline = XmlRead.Vector(xmlNode2);
 					xmlNode2 = xmlDocument.SelectSingleNode("//WaitingZone");
@@ -1400,10 +1397,7 @@ public class DragMeets : Script
 					{
 						text3 = xmlNode2.InnerText;
 					}
-					else if (DebugNotifications)
-					{
-						UI.Notify("~r~WaitingZone/Prop not found");
-					}
+					else ReportMissingField("WaitingZone/Prop");
 					WaitingAreRange = float.Parse(xmlDocument.SelectSingleNode("//WaitingZone/Radius").InnerText, CultureInfo.InvariantCulture);
 					xmlNode2 = xmlDocument.SelectSingleNode("//Heading");
 					if (xmlNode2 != null)
@@ -1433,19 +1427,13 @@ public class DragMeets : Script
 					{
 						Separation = int.Parse(xmlNode2.InnerText, CultureInfo.InvariantCulture);
 					}
-					else if (DebugNotifications)
-					{
-						UI.Notify("~r~SeparationBetweenCars not found");
-					}
+					else ReportMissingField("SeparationBetweenCars");
 					xmlNode2 = xmlDocument.SelectSingleNode("//MaxCarLimit");
 					if (xmlNode2 != null)
 					{
 						RacerCap = int.Parse(xmlNode2.InnerText, CultureInfo.InvariantCulture);
 					}
-					else if (DebugNotifications)
-					{
-						UI.Notify("~r~MaxCarLimit not found");
-					}
+					else ReportMissingField("MaxCarLimit");
 					if (FPSFriendly && RacerCap > 12)
 					{
 						RacerCap = 12;
@@ -1456,10 +1444,7 @@ public class DragMeets : Script
 					{
 						pathToStartingLine = XmlRead.TruncatedVector(xmlNode2);
 					}
-					else if (DebugNotifications)
-					{
-						UI.Notify("~r~PathToStartingLine not found");
-					}
+					else ReportMissingField("PathToStartingLine");
 					PathToStartingLine = pathToStartingLine;
 					foreach (XmlElement item3 in xmlDocument.SelectNodes("//Radios/*"))
 					{
@@ -1479,37 +1464,25 @@ public class DragMeets : Script
 					{
 						RacersPerRace = int.Parse(xmlNode2.InnerText, CultureInfo.InvariantCulture);
 					}
-					else if (DebugNotifications)
-					{
-						UI.Notify("~r~CarsPerRace not found");
-					}
+					else ReportMissingField("CarsPerRace");
 					xmlNode2 = xmlDocument.SelectSingleNode("//Bets");
 					if (xmlNode2 != null)
 					{
 						MoneyBet = int.Parse(xmlNode2.InnerText, CultureInfo.InvariantCulture);
 					}
-					else if (DebugNotifications)
-					{
-						UI.Notify("~r~Bets not found");
-					}
+					else ReportMissingField("Bets");
 					xmlNode2 = xmlDocument.SelectSingleNode("//Fee");
 					if (xmlNode2 != null)
 					{
 						Fee = int.Parse(xmlNode2.InnerText, CultureInfo.InvariantCulture);
 					}
-					else if (DebugNotifications)
-					{
-						UI.Notify("~r~Fee not found");
-					}
+					else ReportMissingField("Fee");
 					xmlNode2 = xmlDocument.SelectSingleNode("//Prize");
 					if (xmlNode2 != null)
 					{
 						Prize = int.Parse(xmlNode2.InnerText, CultureInfo.InvariantCulture);
 					}
-					else if (DebugNotifications)
-					{
-						UI.Notify("~r~Prize not found");
-					}
+					else ReportMissingField("Prize");
 					foreach (Blip meetBlip2 in MeetBlips)
 					{
 						meetBlip2.Alpha = 0;
@@ -1850,6 +1823,20 @@ public class DragMeets : Script
 		{
 			UI.Notify(racer.Name + " is a sleeper");
 		}
+	}
+
+	/// <summary>
+	/// A meet file left a field out. The text is the one the shipped build wrote, kept byte-identical
+	/// because sessions are compared against 2.2 logs; the gate lives here so nine call sites stop
+	/// carrying it. The argument is always a literal, so nothing is evaluated when debug is off.
+	/// </summary>
+	private void ReportMissingField(string field)
+	{
+		if (!DebugNotifications)
+		{
+			return;
+		}
+		UI.Notify("~r~" + field + " not found");
 	}
 
 	public void PickForRace(Racer racer, RacerStatus state)

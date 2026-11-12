@@ -94,6 +94,31 @@ Two kinds of line now sit in it: the shipped ones, kept byte-compatible so sessi
 the 2.2 build, and the scaffolding added for observation (timestamped state and tick lines, and a dump
 of the settings in effect). The scaffolding is temporary and must be removed before release.
 
+## Talking to the player
+
+Five different mechanisms carry the 149 player-facing messages, and they are not interchangeable:
+
+| Surface | How it appears | Behaviour |
+|---|---|---|
+| `UI.Notify` | a notification balloon | immediate, one per call, nothing queued |
+| `Util.AddQueuedHelpText` | help text, bottom of the screen | queued, and **de-duplicated on byte-identical text** |
+| `DisplayHelpTextThisFrame` | help text | drawn every frame it is called, no queue |
+| `WarnPlayer` | phone-style notification with a title | immediate, via the character-notification natives |
+| `Util.AddNotification` | rich notification with avatar and author | queued, four parallel lists |
+
+Every message is a raw string with `~colour~` codes inline; there is no token table and no message
+resource. Debug chatter is wrapped in `if (DebugNotifications)` (30 blocks) and guidance in
+`if (Guides)` (8 blocks).
+
+Two consequences worth knowing before editing any of it:
+
+- **A gate is not always a message gate.** One of those blocks draws debug lines rather than talking to
+  the player; collapsing it into a message helper would draw every frame in normal play.
+- **Collapsing a guard changes when its argument is evaluated.** Building the string inside the guard
+  means it only exists when the gate passes; moving the gate into a helper evaluates the argument on
+  every call. Any message built from live entity state can then throw in sessions where the feature is
+  switched off — so those stay as guards.
+
 ## Hidden couplings
 
 **The sleeper engine.** While a meet is being built, up to four non-player racers in the slow classes
