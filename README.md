@@ -19,11 +19,13 @@ sources are kept untouched in `vendor/eddlm-2017/` for reference.
 ## Layout
 
 ```
-src/DragMeets2.2/     the working project (net48, C# 7.3, x64)
+src/DragMeets2.2/     CANON: the working project (net48, C# 7.3, x64), what build.cmd builds
 data/                 the shipped 2.2 data: config.ini, Meets/, Racers/
 docs/PORT-REPORT.md   what had to change, and why
 scripts/              recovery tooling
 vendor/eddlm-2017/    the 2017 repository, untouched
+reference/            NOT BUILT, kept for reference: 1.9.4-sources/ (2017 master sources with an
+                      SDK-style csproj) and 1.9.3c-dup/ (spare copy of vendor/eddlm-2017)
 ```
 
 ## Build

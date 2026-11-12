@@ -56,8 +56,20 @@ obj/
 /orig/
 /work/
 
-# pre-reorganisation copies left in place on disk; the tracked home is vendor/eddlm-2017
-/Drag Meets Reborn/
-/Drag Meets Reborn.sln
-/src/DragMeetsReborn/
+# reference material, parked away from canon and never built
+/reference/
+
+# editor and tooling
+.vs/
+.vscode/
+*.DotSettings.user
+
+# local working notes: they describe work in progress, never the product
+/AGENTS.md
+/BACKLOG.md
+/NOTES.md
+
+# release packages and one-off artefacts
+/*.zip
+*.tmp
 
