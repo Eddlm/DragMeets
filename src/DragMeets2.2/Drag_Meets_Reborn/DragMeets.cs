@@ -1240,8 +1240,11 @@ public class DragMeets : Script
 		}
 	}
 
+	private static readonly List<MeetFile> MeetFiles = new List<MeetFile>();
+
 	public void LoadMeetTriggersFromFile()
 	{
+		MeetFiles.Clear();
 		XmlDocument xmlDocument = new XmlDocument();
 		int num = 0;
 		string[] files = Directory.GetFiles(Paths.MeetsDir);
@@ -1264,6 +1267,9 @@ public class DragMeets : Script
 				continue;
 			}
 			Vector3 val = XmlRead.TruncatedVector(xmlNode);
+			XmlDocument cacheDocument = new XmlDocument();
+			cacheDocument.Load(text);
+			MeetFiles.Add(new MeetFile(text, cacheDocument, XmlRead.Vector(xmlNode), val, cacheDocument.SelectSingleNode("//Touge") != null));
 			MeetTriggers.Add(val);
 			Blip val2 = World.CreateBlip(val);
 			val2.Sprite = (BlipSprite)108;
@@ -1359,36 +1365,11 @@ public class DragMeets : Script
 				}
 				File.AppendAllText(Paths.DebugLog, "\n Spawning new meet, looking for meet file...");
 				LoadSettings(configpath);
-				XmlDocument xmlDocument = new XmlDocument();
-				int num2 = 0;
-				string[] files = Directory.GetFiles(Paths.MeetsDir);
-				foreach (string text in files)
+				foreach (MeetFile meetFile in MeetFiles)
 				{
-					if (!File.Exists(text))
-					{
-						continue;
-					}
-					num2++;
-					xmlDocument.Load(text);
-					if (xmlDocument == null)
-					{
-						File.AppendAllText(Paths.DebugLog, " - ERROR, no meet file found.");
-						UI.Notify("~r~Failed to load " + text);
-						continue;
-					}
-					XmlNode xmlNode = MeetXml.SpawnNode(xmlDocument, out bool usedFallback);
-					if (usedFallback)
-					{
-											File.AppendAllText(Paths.DebugLog, "\nNO MEET TRIGGER FOUND, looking for WaitingZone");
-}
-					if (xmlNode == null)
-					{
-						UI.Notify("~r~Failed to load " + text);
-						continue;
-					}
-					File.AppendAllText(Paths.DebugLog, " - WaitingZone found");
-					Vector3 val2 = XmlRead.Vector(xmlNode);
-					if (!(meetTrigger == val2))
+					string text = meetFile.Path;
+					XmlDocument xmlDocument = meetFile.Document;
+					if (!(meetTrigger == meetFile.Spawn))
 					{
 						continue;
 					}
