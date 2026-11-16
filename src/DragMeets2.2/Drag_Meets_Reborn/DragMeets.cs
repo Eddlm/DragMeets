@@ -16,7 +16,7 @@ public class DragMeets : Script
 {
 	public static string ScriptName = "Drag Meets";
 
-	public static string ScriptVer = "2.2";
+	public static string ScriptVer = "2.2.1";
 
 	public static bool IsStartLineBusy = false;
 
